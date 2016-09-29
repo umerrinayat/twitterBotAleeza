@@ -89,9 +89,11 @@ function tweetIt(tweetText) {
 
 
 var tweetCounter = 0;
-setInterval(postRandomTweet, 1000*60*120);
+setInterval(postRandomTweet, 1000*60*60);
 
 
 function postRandomTweet() {
     tweetIt(tweetJson.tweets[tweetCounter].text);
+    console.log(tweetJson.tweets[tweetCounter].text);
+    tweetCounter++;
 }
