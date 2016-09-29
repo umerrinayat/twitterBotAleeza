@@ -2,13 +2,14 @@ console.log('This is bot');
 
 var Twit = require('twit');
 var config = require('./congif');
+var tweetJson = require('./aleezaBotTweets.json');
 
 
 console.log(config);
 var T = new Twit(config);
 
 // var param = { 
-//     q: 'Lahore Pakistan',
+//     q: 'Dog Love',
 //     count: 5
 //  };
 
@@ -68,7 +69,6 @@ function favorited(userData) {
     tweetIt('@' + twitterHandle + ' Thanks for liking my tweet :* #BOT #Alleza');
 }
 
-// setInterval(tweetIt, 1000*10);
 
 function tweetIt(tweetText) {
 
@@ -85,4 +85,13 @@ function tweetIt(tweetText) {
             console.log('Tweet is posted ! YAY ');
     }
 
+}
+
+
+var tweetCounter = 0;
+setInterval(postRandomTweet, 1000*60*120);
+
+
+function postRandomTweet() {
+    tweetIt(tweetJson.tweets[tweetCounter].text);
 }
